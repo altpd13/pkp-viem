@@ -1,11 +1,7 @@
 # pkp-viem
 
-This library was generated with [Nx](https://nx.dev).
-
-## Building
-
-Run `nx build pkp-viem` to build the library.
+Run `yarn` first
 
 ## Running unit tests
 
-Run `nx test pkp-viem` to execute the unit tests via [Jest](https://jestjs.io).
+Run `yarn start <test-case>` to execute the test.
