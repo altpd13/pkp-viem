@@ -1,4 +1,4 @@
-import { PKPViemAccount } from "./src/lib/pkp-viem";
+import { PKPViemAccount } from "./lib/pkp-viem";
 import { LitLogger } from "./utils";
 import { CONTROLLER_AUTHSIG, PKP_PUBKEY } from "./config.json";
 import {
