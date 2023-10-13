@@ -1,5 +1,6 @@
 {
-  "name": "@lit-protocol/pkp-viem",
+  "name": "@altpd13/pkp-viem",
+  "author": "altpd13",
   "version": "0.0.1",
   "type": "commonjs",
   "main": "dist/index.js",
@@ -14,6 +15,10 @@
   "license": "Apache-2.0",
   "publishConfig": {
     "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/altpd13/pkp-viem.git"
   },
   "dependencies": {
     "@lit-protocol/lit-node-client": "^2.2.26",

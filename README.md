@@ -1,6 +1,6 @@
 # pkp-viem
 
-Run `yarn` first
+`yarn add @altpd13/pkp-viem`
 
 ## Running unit tests
 
