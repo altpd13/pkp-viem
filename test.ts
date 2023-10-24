@@ -50,7 +50,7 @@ if (args.length === 0) {
   console.log(" 2 = create a wallet and send a transaction");
   console.log(" 3 = create a PKP wallet");
   console.log(" 4 = create a PKP wallet and send a transaction");
-  console.log("");
+  console.log(" 5 = create a PKP wallet and send Raw Transaction ");
   process.exit(0);
 }
 
@@ -85,7 +85,6 @@ async function testPKPWalletAndSignMessage() {
   logger.log("signature", sig);
 }
 
-
 async function testPKPWalletAndSignTypedData() {
   // message
   const message = {
@@ -99,7 +98,7 @@ async function testPKPWalletAndSignTypedData() {
     },
     contents: "Hello, Bob!",
   } as const;
-  
+
   // domain
   const domain = {
     name: "Ether Mail",
@@ -123,35 +122,10 @@ async function testPKPWalletAndSignTypedData() {
 
   const account = createPKPViemAccount();
   const signature = await account.signTypedData({
-    domain: {
-      name: "Ether Mail",
-      version: "1",
-      chainId: 1,
-      verifyingContract: "0xCcCCccccCCCCcCCCCCCcCcCccCcCCCcCcccccccC",
-    },
-    types: {
-      Person: [
-        { name: "name", type: "string" },
-        { name: "wallet", type: "address" },
-      ],
-      Mail: [
-        { name: "from", type: "Person" },
-        { name: "to", type: "Person" },
-        { name: "contents", type: "string" },
-      ],
-    },
+    domain: domain,
+    types: types,
     primaryType: "Mail",
-    message: {
-      from: {
-        name: "Cow",
-        wallet: "0xCD2a3d9F938E13CD947Ec05AbC7FE734Df8DD826",
-      },
-      to: {
-        name: "Bob",
-        wallet: "0xbBbBBBBbbBBBbbbBbbBbbbbBBbBbbbbBbBbbBBbB",
-      },
-      contents: "Hello, Bob!",
-    },
+    message: message,
   });
   logger.log("signature", signature);
 
@@ -200,7 +174,7 @@ async function testPKPWalletSendRawTransaction() {
   const hash = await walletClient.sendRawTransaction({
     serializedTransaction: signature,
   });
-  logger.log('hash', hash)
+  logger.log("hash", hash);
 }
 
 /**

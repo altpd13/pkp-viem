@@ -1,7 +1,7 @@
 {
   "name": "@altpd13/pkp-viem",
   "author": "altpd13",
-  "version": "0.0.1",
+  "version": "0.0.11",
   "type": "commonjs",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -21,10 +21,10 @@
     "url": "https://github.com/altpd13/pkp-viem.git"
   },
   "dependencies": {
-    "@lit-protocol/lit-node-client": "^2.2.26",
-    "@lit-protocol/pkp-base": "^2.2.26",
-    "@lit-protocol/types": "^2.2.26",
-    "viem": "1.16.3"
+    "@lit-protocol/lit-node-client": "^2.2.49",
+    "@lit-protocol/pkp-base": "^2.2.49",
+    "@lit-protocol/types": "^2.2.49",
+    "viem": "^1.16.2"
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.1",

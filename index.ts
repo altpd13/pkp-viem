@@ -1,3 +1,3 @@
 import { PKPViemAccount } from "./lib/pkp-viem";
-
-export { PKPViemAccount };
+import { convertAccountToSmartAccountSigner } from "./lib/utils/accountToSmartAccount";
+export { PKPViemAccount, convertAccountToSmartAccountSigner };
