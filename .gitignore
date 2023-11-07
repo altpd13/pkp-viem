@@ -28,7 +28,6 @@ node_modules
 !.vscode/extensions.json
 
 # misc
-/.sass-cache
 /connect.lock
 /coverage
 /libpeerconnection.log
@@ -42,10 +41,6 @@ testem.log
 Thumbs.db
 
 .vscode
-
-# Next.js
-.next
-lerna-debug.log
 
 dev.sh
 dev

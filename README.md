@@ -11,7 +11,7 @@ API: https://viem.sh/docs/accounts/custom.html
 # Getting Started
 
 ```
-yarn add @altpd13/pkp-viem viem
+yarn add pkp-viem viem
 ```
 
 ## Running unit tests
