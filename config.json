@@ -1,9 +1,9 @@
 {
   "CONTROLLER_AUTHSIG": {
-    "sig": "0x78d58943441b2f94c8568d08aa3346e2d1d8ccd6733d039de298af16bb9fe9ca162ef8be7458ae62c2633d6b0cf839807ea9d10aaba31218061dc7472c9c0e5c1c",
+    "sig": "0x137b66529678d1fc58ab5b340ad036082af5b9912f823ba22c2851b8f50990a666ad8f2ab2328e8c94414c0a870163743bde91a5f96e9f967fd45d5e0c17c3911b",
     "derivedVia": "web3.eth.personal.sign",
-    "signedMessage": "localhost wants you to sign in with your Ethereum account:\n0xeF71c2604f17Ec6Fc13409DF24EfdC440D240d37\n\nTESTING TESTING 123\n\nURI: https://localhost/login\nVersion: 1\nChain ID: 1\nNonce: E8NnQ74rcoslAlkdy\nIssued At: 2023-10-03T14:32:02.839Z\nExpiration Time: 2215-05-30T14:32:02.839Z",
+    "signedMessage": "localhost wants you to sign in with your Ethereum account:\n0xeF71c2604f17Ec6Fc13409DF24EfdC440D240d37\n\nTESTING TESTING 123\n\nURI: https://localhost/login\nVersion: 1\nChain ID: 1\nNonce: eoeo0dsvyLL2gcHsC\nIssued At: 2023-11-17T15:04:20.324Z\nExpiration Time: 2215-07-14T15:04:20.323Z",
     "address": "0xeF71c2604f17Ec6Fc13409DF24EfdC440D240d37"
   },
-  "PKP_PUBKEY": "04fc640ce59f2941109aa117aeae74f2597740a98bc3b18bad6a60ff79afa825c0383863d97ff6ec4febfee5a3e9411a604371ef2b6323de8c56ca9e7c64884e49"
+  "PKP_PUBKEY": "04b5caf00c9f5adc9b22ca460b88482bad44ed4fac8ee63014b727cf60efc568dbdfe498a94fbd9cd294d651529f9fe76e057e9736150eea038415b06f64a87939"
 }
