@@ -52,9 +52,9 @@ export class PKPViemAccount extends PKPBase implements LocalAccount {
   }
 
   async signTypedData<
-    const TTypedData extends TypedData | { [key: string]: unknown },
-    TPrimaryType extends string
-  >(typedData: TypedDataDefinition<TTypedData, TPrimaryType>): Promise<Hash> {
+    const typedData extends TypedData | Record<string, unknown>,
+    primaryType extends keyof typedData | 'EIP712Domain'
+  >(typedData: TypedDataDefinition<typedData, primaryType>): Promise<Hash> {
     const signauture = await this.sign(hashTypedData(typedData));
     return signatureToHex(signauture);
   }

@@ -46,9 +46,9 @@ const args = process.argv.slice(2);
 if (args.length === 0) {
   console.log("\nUsage: node main.js <test case number>\n");
   console.log(" Test cases:");
-  console.log(" 1 = create a wallet");
-  console.log(" 2 = create a wallet and send a transaction");
-  console.log(" 3 = create a PKP wallet");
+  console.log(" 1 = create a pkp wallet");
+  console.log(" 2 = create a pkp wallet and sign message");
+  console.log(" 3 = create a PKP wallet and sign typed data");
   console.log(" 4 = create a PKP wallet and send a transaction");
   console.log(" 5 = create a PKP wallet and send Raw Transaction ");
   process.exit(0);
