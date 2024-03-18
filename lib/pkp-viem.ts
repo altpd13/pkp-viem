@@ -18,6 +18,7 @@ import {
   Hex,
   Address,
   TransactionSerialized,
+  Chain,
 } from "viem";
 import { SignTransactionReturnType } from "viem/_types/accounts/utils/signTransaction";
 import { IsNarrowable } from "viem/_types/types/utils";
@@ -27,19 +28,26 @@ import {
   publicKeyToAddress,
   toHex,
 } from "viem/utils";
-
+interface PKPBasePropWithChain extends PKPBaseProp {
+  chain?: Chain;
+}
 export class PKPViemAccount extends PKPBase implements LocalAccount {
   readonly publicKey!: Hex;
   readonly source = "custom";
   readonly type = "local";
   readonly address!: Address;
+  readonly defaultRpcUrl: string;
 
   defaultSigName: string = "pkp-viem-sign";
 
-  constructor(prop: PKPBaseProp) {
+  constructor(prop: PKPBasePropWithChain) {
     super(prop);
     this.publicKey = toHex(this.uncompressedPubKeyBuffer);
     this.address = publicKeyToAddress(this.publicKey);
+    // get first rpc url from rpcUrls
+    if (prop.chain) {
+      this.defaultRpcUrl = prop.chain.rpcUrls.default.http[0];
+    }
   }
 
   async getAddress(): Promise<Address> {
@@ -53,7 +61,7 @@ export class PKPViemAccount extends PKPBase implements LocalAccount {
 
   async signTypedData<
     const typedData extends TypedData | Record<string, unknown>,
-    primaryType extends keyof typedData | 'EIP712Domain'
+    primaryType extends keyof typedData | "EIP712Domain"
   >(typedData: TypedDataDefinition<typedData, primaryType>): Promise<Hash> {
     const signauture = await this.sign(hashTypedData(typedData));
     return signatureToHex(signauture);
