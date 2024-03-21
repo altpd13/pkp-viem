@@ -102,47 +102,26 @@ export class PKPViemAccount extends PKPBase implements LocalAccount {
     if (!this.litNodeClientReady) {
       await this.init();
     }
-
-    if (isBytes(msgHash)) {
-      if (this.useAction) {
-        const litSignature = await this.runLitAction(msgHash, "pkp-viem-sign");
-        const signature: Signature = {
-          r: `0x${litSignature.r}` as Hex,
-          s: `0x${litSignature.s}` as Hex,
-          v: BigInt(27 + litSignature.recid),
-        };
-        return signature;
-      } else {
-        const litSignature = await this.runSign(msgHash);
-        const signature: Signature = {
-          r: `0x${litSignature.r}` as Hex,
-          s: `0x${litSignature.s}` as Hex,
-          v: BigInt(27 + litSignature.recid),
-        };
-        return signature;
-      }
+    const hashToSign = isBytes(msgHash) ? msgHash : toBytes(msgHash);
+    if (this.useAction) {
+      const litSignature = await this.runLitAction(
+        hashToSign,
+        this.defaultSigName
+      );
+      const signature: Signature = {
+        r: `0x${litSignature.r}` as Hex,
+        s: `0x${litSignature.s}` as Hex,
+        v: BigInt(27 + litSignature.recid),
+      };
+      return signature;
     } else {
-      const msgHashUint8Array: Uint8Array = toBytes(msgHash);
-      if (this.useAction) {
-        const litSignature = await this.runLitAction(
-          msgHashUint8Array,
-          "pkp-viem-sign"
-        );
-        const signature: Signature = {
-          r: `0x${litSignature.r}` as Hex,
-          s: `0x${litSignature.s}` as Hex,
-          v: BigInt(27 + litSignature.recid),
-        };
-        return signature;
-      } else {
-        const litSignature = await this.runSign(msgHashUint8Array);
-        const signature: Signature = {
-          r: `0x${litSignature.r}` as Hex,
-          s: `0x${litSignature.s}` as Hex,
-          v: BigInt(27 + litSignature.recid),
-        };
-        return signature;
-      }
+      const litSignature = await this.runSign(hashToSign);
+      const signature: Signature = {
+        r: `0x${litSignature.r}` as Hex,
+        s: `0x${litSignature.s}` as Hex,
+        v: BigInt(27 + litSignature.recid),
+      };
+      return signature;
     }
   }
 }
